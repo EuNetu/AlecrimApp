@@ -6,6 +6,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import tads.eaj.ufrn.alecrim.databinding.ProdutoItemBinding
 import tads.eaj.ufrn.alecrim.model.Produto
+import java.text.NumberFormat
+import java.util.*
 
 class ListaProdutosAdapter(
     private val context: Context,
@@ -23,7 +25,9 @@ class ListaProdutosAdapter(
             val descricao = binding.produtoItemDescricao
             descricao.text = produto.descricao
             val valor = binding.produtoItemValor
-            valor.text = produto.valor.toPlainString()
+            val formatador = NumberFormat.getCurrencyInstance(Locale("pt", "br"))
+            val valorMoeda : String = formatador.format(produto.valor)
+            valor.text = valorMoeda
         }
 
     }
