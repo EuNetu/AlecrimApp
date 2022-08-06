@@ -2,9 +2,13 @@ package tads.eaj.ufrn.alecrim.ui.recyclerview.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
+import tads.eaj.ufrn.alecrim.R
 import tads.eaj.ufrn.alecrim.databinding.ProdutoItemBinding
+import tads.eaj.ufrn.alecrim.functions.carregarImagem
 import tads.eaj.ufrn.alecrim.model.Produto
 import java.text.NumberFormat
 import java.util.*
@@ -28,6 +32,16 @@ class ListaProdutosAdapter(
             val formatador = NumberFormat.getCurrencyInstance(Locale("pt", "br"))
             val valorMoeda : String = formatador.format(produto.valor)
             valor.text = valorMoeda
+
+            val visibilidade = if (produto.imagem != null){
+                View.VISIBLE
+            }else{
+                View.GONE
+            }
+
+            binding.imageView.visibility = visibilidade
+
+            binding.imageView.carregarImagem(produto.imagem)
         }
 
     }

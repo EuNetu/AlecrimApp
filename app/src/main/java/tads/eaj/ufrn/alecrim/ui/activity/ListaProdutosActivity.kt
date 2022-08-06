@@ -2,7 +2,9 @@ package tads.eaj.ufrn.alecrim.ui.activity
 
 import android.content.Intent
 import android.os.Bundle
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import tads.eaj.ufrn.alecrim.R
 import tads.eaj.ufrn.alecrim.databinding.ActivityListaProdutosActivityBinding
 import tads.eaj.ufrn.alecrim.dao.ProdutosDao
 import tads.eaj.ufrn.alecrim.ui.recyclerview.adapter.ListaProdutosAdapter
